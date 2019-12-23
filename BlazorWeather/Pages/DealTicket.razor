@@ -1,0 +1,43 @@
+﻿@page "/dealticket"
+
+@using BlazorWeather.Data
+
+
+<h1>Deal Ticket</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (ticket == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var allocation in ticket.Allocations)
+            {
+                <tr>
+                    <td>@allocation.Quantity.ToString()</td>
+                    <td>x</td>
+                    <td>y</td>
+                    <td>z</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private DealTicket ticket = new DealTicket() { Instrument="Voda", Allocations = { new DealTicketAllocation() { Quantity = 10} } };
+
+
+}
